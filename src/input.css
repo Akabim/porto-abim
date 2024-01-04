@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  --sb-track-color: #ffffff;
+  --sb-thumb-color: #676767;
+  --sb-size: 11px;
+  --sb-height: 5px;
+
+  scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+  height: var(--sb-height);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 20px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 20px;
+  border: 3px solid #ffffff;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: transparent transparent; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    overflow: -moz-scrollbars-none; /* Firefox */
+  }
+
+  body::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+}
+
+.navbar-fixed {
+  @apply fixed z-[9999] bg-white bg-opacity-50;
+  backdrop-filter: blur(5px);
+}
+
+.hamburger-line {
+  @apply w-[30px] h-[2px] my-2 block bg-primary;
+}
+
+.hamburger-active > span:nth-child(1) {
+  @apply rotate-45;
+}
+.hamburger-active > span:nth-child(2) {
+  @apply scale-0;
+}
+.hamburger-active > span:nth-child(3) {
+  @apply -rotate-45;
+}
